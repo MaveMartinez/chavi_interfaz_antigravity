@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, initial-scale=1.0">
+    <title>Festival de Ancash — Interfaz Interactiva | ChaviBot</title>
+    <meta name="description" content="Interfaz interactiva para el Festival de Ancash con temática cultural Chavín. Robot Pepper.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="app">
+
+    <!-- ===================== -->
+    <!-- PANTALLA DE INICIO    -->
+    <!-- ===================== -->
+    <div id="screen-home" class="screen screen-home active">
+        <div class="home-bg"></div>
+        <div class="home-overlay"></div>
+        <div class="particles" id="particles"></div>
+        <div class="home-content">
+            <div class="chavin-border">
+                <div class="home-icon">🏛️</div>
+                <div style="height: 24px;"></div>
+                <h1 class="home-title">Bienvenido al<br>Festival de Ancash</h1>
+                <div style="height: 16px;"></div>
+                <div class="home-divider" style="margin: 0 auto;"></div>
+                <div style="height: 16px;"></div>
+                <p class="home-subtitle">Cultura Chavín · Tradición · Arte</p>
+            </div>
+            <div class="home-buttons">
+                <button class="btn-main" onclick="navigateTo('map')" id="btn-lugar">
+                    <span class="btn-icon">📍</span>
+                    <span class="btn-label">Encontrar Lugar</span>
+                </button>
+                <button class="btn-main" onclick="navigateTo('cartelera')" id="btn-cartelera">
+                    <span class="btn-icon">🎬</span>
+                    <span class="btn-label">Revisar Cartelera</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- PANTALLA MAPA         -->
+    <!-- ===================== -->
+    <div id="screen-map" class="screen screen-map">
+        <div class="header-bar">
+            <button class="btn-back" onclick="goBack()" id="btn-back-map">
+                <span class="arrow">←</span> Volver
+            </button>
+            <h2 class="header-title">📍 Encontrar Lugar</h2>
+            <span class="header-logo">🏛️</span>
+        </div>
+        <div class="map-container">
+            <div class="map-view">
+                <img src="assets/img/festival_map.png" alt="Plano del Festival">
+                <div id="map-svg-container"></div>
+            </div>
+            <div class="map-sidebar">
+                <div id="zone-buttons" class="stagger"></div>
+                <div id="zone-info" class="zone-info-panel">
+                    <h3>📍 Selecciona un lugar</h3>
+                    <p>Toca un lugar en el mapa o selecciona uno de la lista para ver su ubicación.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- PANTALLA CARTELERA    -->
+    <!-- ===================== -->
+    <div id="screen-cartelera" class="screen screen-cartelera">
+        <div class="header-bar">
+            <button class="btn-back" onclick="goBack()" id="btn-back-cartelera">
+                <span class="arrow">←</span> Volver
+            </button>
+            <h2 class="header-title">🎬 Cartelera del Festival</h2>
+            <span class="header-logo">🏛️</span>
+        </div>
+        <div class="cartelera-container">
+            <div class="cartelera-section-title">
+                <span>En Cartelera</span>
+            </div>
+            <div id="movies-grid" class="movies-grid"></div>
+        </div>
+    </div>
+
+    <!-- ===================== -->
+    <!-- PANTALLA DETALLE      -->
+    <!-- ===================== -->
+    <div id="screen-detail" class="screen screen-detail">
+        <div class="header-bar">
+            <button class="btn-back" onclick="goBack()" id="btn-back-detail">
+                <span class="arrow">←</span> Volver a Cartelera
+            </button>
+            <h2 class="header-title">🎬 Detalle de Película</h2>
+            <span class="header-logo">🏛️</span>
+        </div>
+        <div class="detail-container">
+            <div id="detail-poster" class="detail-poster"></div>
+            <div class="detail-content">
+                <h2 id="detail-title" class="detail-title"></h2>
+                <div id="detail-meta" class="detail-meta-row"></div>
+                <p id="detail-synopsis" class="detail-synopsis"></p>
+                <div class="trailer-label">▶ Trailer Oficial</div>
+                <div id="trailer-container" class="detail-trailer-wrap"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="js/movies-data.js"></script>
+<script src="js/map-data.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
